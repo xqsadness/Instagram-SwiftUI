@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @AppStorage("colorScheme") var colorScheme = "dark"
+    @State var isShowSetting = false
+    @State var showChangeMode = true
+    
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 1),
         .init(.flexible(), spacing: 1),
@@ -16,52 +20,69 @@ struct ProfileView: View {
     ]
     
     var body: some View {
-        NavigationStack{
-            ScrollView(showsIndicators: false){
-                // header
-                VStack(spacing: 10){
-                    VStack {
-                        // pic and stats.
-                        pictureAndStats
-                        
-                        // name and bio
-                        nameAndBio
-                        
-                        // action button
-                        Button {
+        ZStack{
+            NavigationStack{
+                ScrollView(showsIndicators: false){
+                    // header
+                    VStack(spacing: 10){
+                        VStack {
+                            // pic and stats.
+                            pictureAndStats
                             
-                        } label: {
-                            Text("Edit Profile")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .frame(width: 360, height: 32)
-                                .foregroundColor(.text)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 6)
-                                        .stroke (Color.gray, lineWidth: 1)
-                                )
+                            // name and bio
+                            nameAndBio
+                            
+                            // action button
+                            Button {
+                                
+                            } label: {
+                                Text("Edit Profile")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .frame(width: 360, height: 32)
+                                    .foregroundColor(.text)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 6)
+                                            .stroke (Color.gray, lineWidth: 1)
+                                    )
+                            }
+                            Divider()
                         }
-                        Divider()
+                    }
+                    
+                    // post grid view
+                    postGrid
+                }
+                .navigationTitle("Profile")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar{
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button{
+                            withAnimation {
+                                showChangeMode = true
+                                isShowSetting.toggle()
+                            }
+                        }label:{
+                            Image(systemName: "line.3.horizontal")
+                                .imageScale(.large)
+                                .foregroundStyle(.text)
+                        }
                     }
                 }
+                .sheet(isPresented: $isShowSetting, content: {
+                    sheetMore
+                })
                 
-                // post grid view
-                postGrid
                 
             }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button{
-                        
-                    }label:{
-                        Image(systemName: "line.3.horizontal")
-                            .imageScale(.large)
-                            .foregroundStyle(.text)
-                    }
+            .onDisappear{
+                withAnimation {
+                    showChangeMode = true
                 }
             }
+            
+            DarkLightModeView(show: $showChangeMode)
+                .opacity(showChangeMode ? 0 : 1)
         }
     }
 }
@@ -113,5 +134,56 @@ extension ProfileView{
         }
         .padding(.horizontal)
         .padding(.bottom,4)
+    }
+    
+    private var sheetMore: some View{
+        VStack(spacing: 13){
+            Capsule()
+                .frame(width: 65, height: 6)
+                .foregroundStyle(.gray).opacity(0.3)
+            
+            HStack{
+                Image(systemName: "gearshape")
+                    .imageScale(.large)
+                    .foregroundStyle(.text)
+                
+                Text("Change Mode")
+                    .font(.regular(size: 16))
+                    .foregroundStyle(.text)
+            }
+            .hAlign(.leading)
+            .onTapGesture {
+                withAnimation {
+                    isShowSetting = false
+                    showChangeMode.toggle()
+                }
+            }
+            
+            HStack{
+                Image(systemName: "doc.badge.gearshape")
+                    .imageScale(.large)
+                    .foregroundStyle(.text)
+                
+                Text("Setting & privacy")
+                    .font(.regular(size: 16))
+                    .foregroundStyle(.text)
+            }
+            .hAlign(.leading)
+            
+            HStack{
+                Image(systemName: "heart")
+                    .imageScale(.large)
+                    .foregroundStyle(.text)
+                
+                Text("Favorite")
+                    .font(.regular(size: 16))
+                    .foregroundStyle(.text)
+            }
+            .hAlign(.leading)
+        }
+        .padding()
+        .hAlign(.leading)
+        .vAlign(.top)
+        .presentationDetents([.height(UIScreen.main.bounds.height / 2.75)])
     }
 }
