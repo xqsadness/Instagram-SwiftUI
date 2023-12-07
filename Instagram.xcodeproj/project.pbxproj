@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD56DE852B21724100EA8E5F /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE802B21724100EA8E5F /* Inter-Regular.ttf */; };
+		DD56DE862B21724100EA8E5F /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE812B21724100EA8E5F /* Inter-Medium.ttf */; };
+		DD56DE872B21724100EA8E5F /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE822B21724100EA8E5F /* Inter-Light.ttf */; };
+		DD56DE882B21724100EA8E5F /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE832B21724100EA8E5F /* Inter-SemiBold.ttf */; };
+		DD56DE892B21724100EA8E5F /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE842B21724100EA8E5F /* Inter-Bold.ttf */; };
+		DD56DE8B2B21725400EA8E5F /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DE8A2B21725400EA8E5F /* Views.swift */; };
+		DD56DE8D2B21725800EA8E5F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DE8C2B21725800EA8E5F /* Color.swift */; };
+		DD56DE8F2B21725C00EA8E5F /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DE8E2B21725C00EA8E5F /* Font.swift */; };
 		DDE180C62B2074FB00E019CB /* InstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE180C52B2074FB00E019CB /* InstagramApp.swift */; };
 		DDE180C82B2074FB00E019CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE180C72B2074FB00E019CB /* ContentView.swift */; };
 		DDE180CA2B2074FD00E019CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE180C92B2074FD00E019CB /* Assets.xcassets */; };
@@ -14,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD56DE802B21724100EA8E5F /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		DD56DE812B21724100EA8E5F /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		DD56DE822B21724100EA8E5F /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		DD56DE832B21724100EA8E5F /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		DD56DE842B21724100EA8E5F /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		DD56DE8A2B21725400EA8E5F /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		DD56DE8C2B21725800EA8E5F /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		DD56DE8E2B21725C00EA8E5F /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DDE180C22B2074FB00E019CB /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE180C52B2074FB00E019CB /* InstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramApp.swift; sourceTree = "<group>"; };
 		DDE180C72B2074FB00E019CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +48,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD56DE7E2B21722500EA8E5F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD56DE7F2B21722B00EA8E5F /* Font */,
+				DD56DE8E2B21725C00EA8E5F /* Font.swift */,
+				DD56DE8C2B21725800EA8E5F /* Color.swift */,
+				DD56DE8A2B21725400EA8E5F /* Views.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD56DE7F2B21722B00EA8E5F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DD56DE842B21724100EA8E5F /* Inter-Bold.ttf */,
+				DD56DE822B21724100EA8E5F /* Inter-Light.ttf */,
+				DD56DE812B21724100EA8E5F /* Inter-Medium.ttf */,
+				DD56DE802B21724100EA8E5F /* Inter-Regular.ttf */,
+				DD56DE832B21724100EA8E5F /* Inter-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DD56DE902B2172B300EA8E5F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD56DE912B2172BA00EA8E5F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DDE180C52B2074FB00E019CB /* InstagramApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD56DE922B2172BF00EA8E5F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD56DE942B2172F200EA8E5F /* Authentication */,
+				DD56DE952B2172FD00EA8E5F /* Feed */,
+				DD56DE962B21730600EA8E5F /* Profile */,
+				DD56DE972B21730A00EA8E5F /* Root */,
+				DD56DE982B21731100EA8E5F /* Search */,
+				DD56DE992B21731800EA8E5F /* TabBar */,
+				DD56DE9A2B21732200EA8E5F /* UploadPost */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DD56DE932B2172C900EA8E5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD56DE942B2172F200EA8E5F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DD56DE952B2172FD00EA8E5F /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		DD56DE962B21730600EA8E5F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DD56DE972B21730A00EA8E5F /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		DD56DE982B21731100EA8E5F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD56DE992B21731800EA8E5F /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		DD56DE9A2B21732200EA8E5F /* UploadPost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UploadPost;
+			sourceTree = "<group>";
+		};
 		DDE180B92B2074FB00E019CB = {
 			isa = PBXGroup;
 			children = (
@@ -51,7 +175,11 @@
 		DDE180C42B2074FB00E019CB /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
-				DDE180C52B2074FB00E019CB /* InstagramApp.swift */,
+				DD56DE912B2172BA00EA8E5F /* App */,
+				DD56DE922B2172BF00EA8E5F /* Core */,
+				DD56DE7E2B21722500EA8E5F /* Extensions */,
+				DD56DE932B2172C900EA8E5F /* Model */,
+				DD56DE902B2172B300EA8E5F /* Services */,
 				DDE180C72B2074FB00E019CB /* ContentView.swift */,
 				DDE180C92B2074FD00E019CB /* Assets.xcassets */,
 				DDE180CB2B2074FD00E019CB /* Preview Content */,
@@ -125,7 +253,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD56DE882B21724100EA8E5F /* Inter-SemiBold.ttf in Resources */,
+				DD56DE872B21724100EA8E5F /* Inter-Light.ttf in Resources */,
+				DD56DE862B21724100EA8E5F /* Inter-Medium.ttf in Resources */,
+				DD56DE892B21724100EA8E5F /* Inter-Bold.ttf in Resources */,
 				DDE180CD2B2074FD00E019CB /* Preview Assets.xcassets in Resources */,
+				DD56DE852B21724100EA8E5F /* Inter-Regular.ttf in Resources */,
 				DDE180CA2B2074FD00E019CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +271,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE180C82B2074FB00E019CB /* ContentView.swift in Sources */,
+				DD56DE8D2B21725800EA8E5F /* Color.swift in Sources */,
+				DD56DE8F2B21725C00EA8E5F /* Font.swift in Sources */,
 				DDE180C62B2074FB00E019CB /* InstagramApp.swift in Sources */,
+				DD56DE8B2B21725400EA8E5F /* Views.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
