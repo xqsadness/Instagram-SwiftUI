@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FeedView: View {
+    @AppStorage("colorScheme") var colorScheme = "dark"
+    
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false){
@@ -22,7 +24,7 @@ struct FeedView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Image(.igLogoBlack)
+                    Image(getColorScheme() == .dark ? .igLogoWhite : .igLogoBlack)
                         .resizable()
                         .frame(width: 110, height: 110)
                 }
@@ -32,6 +34,16 @@ struct FeedView: View {
                         .imageScale(.large)
                 }
             }
+        }
+    }
+    
+    func getColorScheme() -> ColorScheme?{
+        if colorScheme == "dark"{
+            return .dark
+        }else if colorScheme == "light"{
+            return .light
+        }else{
+            return nil
         }
     }
 }

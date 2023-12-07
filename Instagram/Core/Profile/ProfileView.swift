@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @AppStorage("colorScheme") var colorScheme = "dark"
     @State var isShowSetting = false
     @State var showChangeMode = true
     
@@ -71,9 +70,7 @@ struct ProfileView: View {
                 }
                 .sheet(isPresented: $isShowSetting, content: {
                     sheetMore
-                })
-                
-                
+                })                
             }
             .onDisappear{
                 withAnimation {
