@@ -107,15 +107,7 @@ extension Color{
         }
         return String(format:"%02X", outputR) + String(format:"%02X", outputG) + String(format:"%02X", outputB) + String(format:"%02X", outputA)
     }
-    public static var text: Color = Color("Text")
-    public static var text2: Color = Color("Text2")
-    public static var background: Color = Color("Background")
-    public static var background2: Color = Color("Background2")
-    public static var background3: Color = Color("Background3")
-    public static var backgroundLaunchScreen: Color = Color("BackgroundLaunchScreen")
-    public static func backgroundGradient() -> LinearGradient {
-        return LinearGradient(gradient: Gradient(colors: [Color(hex: "009EB4"), Color(hex: "00B68A")]), startPoint: .top, endPoint: .bottom)
-    }
+
     static var random: Color {
         return Color(
             red: .random(in: 0...1),
