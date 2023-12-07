@@ -22,39 +22,10 @@ struct ProfileView: View {
                 VStack(spacing: 10){
                     VStack {
                         // pic and stats.
-                        HStack{
-                            Image(.avtT)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                            
-                            Spacer()
-                            
-                            HStack(spacing: 8){
-                                UserStatView(value: 3, title: "Posts")
-                                
-                                UserStatView(value: 12, title: "Follower")
-                                
-                                UserStatView(value: 25, title: "Following")
-                            }
-                        }
-                        .padding(.horizontal)
-                        .padding(.bottom,4)
+                        pictureAndStats
                         
-                        HStack {
-                            
-                        }
                         // name and bio
-                        VStack(alignment: .leading, spacing: 4){
-                            Text("Expensive melon")
-                                .font(.semibold(size: 13))
-                            
-                            Text("Expensive melon")
-                                .font(.regular(size: 12))
-                        }
-                        .hAlign(.leading)
-                        .padding(.horizontal)
+                        nameAndBio
                         
                         // action button
                         Button {
@@ -75,13 +46,7 @@ struct ProfileView: View {
                 }
                 
                 // post grid view
-                LazyVGrid(columns: gridItems, spacing: 1){
-                    ForEach(0...15, id: \.self){ index in
-                        Image("avt-t2")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                }
+                postGrid
                 
             }
             .navigationTitle("Profile")
@@ -91,7 +56,7 @@ struct ProfileView: View {
                     Button{
                         
                     }label:{
-                     Image(systemName: "line.3.horizontal")
+                        Image(systemName: "line.3.horizontal")
                             .imageScale(.large)
                             .foregroundStyle(.text)
                     }
@@ -103,4 +68,50 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+}
+
+extension ProfileView{
+    private var nameAndBio: some View{
+        VStack(alignment: .leading, spacing: 4){
+            Text("Expensive melon")
+                .font(.semibold(size: 13))
+            
+            Text("Expensive melon")
+                .font(.regular(size: 12))
+        }
+        .hAlign(.leading)
+        .padding(.horizontal)
+    }
+    
+    private var postGrid: some View{
+        LazyVGrid(columns: gridItems, spacing: 1){
+            ForEach(0...15, id: \.self){ index in
+                Image("avt-t2")
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
+    }
+    
+    private var pictureAndStats: some View{
+        HStack{
+            Image(.avtT)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 80, height: 80)
+                .clipShape(Circle())
+            
+            Spacer()
+            
+            HStack(spacing: 8){
+                UserStatView(value: 3, title: "Posts")
+                
+                UserStatView(value: 12, title: "Follower")
+                
+                UserStatView(value: 25, title: "Following")
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom,4)
+    }
 }
