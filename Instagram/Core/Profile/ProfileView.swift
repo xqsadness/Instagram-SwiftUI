@@ -20,58 +20,59 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack{
-            NavigationStack{
-                ScrollView(showsIndicators: false){
-                    // header
-                    VStack(spacing: 10){
-                        VStack {
-                            // pic and stats.
-                            pictureAndStats
-                            
-                            // name and bio
-                            nameAndBio
-                            
-                            // action button
-                            Button {
-                                
-                            } label: {
-                                Text("Edit Profile")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .frame(width: 360, height: 32)
-                                    .foregroundColor(.text)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 6)
-                                            .stroke (Color.gray, lineWidth: 1)
-                                    )
-                            }
-                            Divider()
+            ScrollView(showsIndicators: false){
+                // header
+                HStack{
+                    Text("iamblue_2801" + " ▽")
+                        .foregroundStyle(.text)
+                        .font(.semibold(size: 15))
+                    Spacer()
+                    Button{
+                        withAnimation {
+                            showChangeMode = true
+                            isShowSetting.toggle()
                         }
-                    }
-                    
-                    // post grid view
-                    postGrid
-                }
-                .navigationTitle("Profile")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button{
-                            withAnimation {
-                                showChangeMode = true
-                                isShowSetting.toggle()
-                            }
-                        }label:{
-                            Image(systemName: "line.3.horizontal")
-                                .imageScale(.large)
-                                .foregroundStyle(.text)
-                        }
+                    }label:{
+                        Image(systemName: "line.3.horizontal")
+                            .imageScale(.large)
+                            .foregroundStyle(.text)
                     }
                 }
-                .sheet(isPresented: $isShowSetting, content: {
-                    sheetMore
-                })                
+                .padding(.bottom)
+                .padding(.horizontal)
+                
+                VStack(spacing: 10){
+                    VStack {
+                        // pic and stats.
+                        pictureAndStats
+                        
+                        // name and bio
+                        nameAndBio
+                        
+                        // action button
+                        Button {
+                            
+                        } label: {
+                            Text("Edit Profile")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .frame(width: 360, height: 32)
+                                .foregroundColor(.text)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 6)
+                                        .stroke (Color.gray, lineWidth: 1)
+                                )
+                        }
+                        Divider()
+                    }
+                }
+                
+                // post grid view
+                postGrid
             }
+            .sheet(isPresented: $isShowSetting, content: {
+                sheetMore
+            })
             .onDisappear{
                 withAnimation {
                     showChangeMode = true

@@ -3,7 +3,7 @@ import Foundation
 import SwiftUI
 
 enum Page: String, Identifiable{
-    case NONE, signUp
+    case NONE, addEmailView, createUsernameView, createPasswordView, completeSignUpView
     
     var id: String{
         return self.rawValue
@@ -65,9 +65,22 @@ class Coordinator: ObservableObject{
     @ViewBuilder
     func build(page: Page) -> some View{
         switch page{
-        case .signUp:
-            SignUpView()
+        case .addEmailView:
+            AddEmailView()
                 .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden()
+        case .createUsernameView:
+            CreateUsernameView()
+                .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden() 
+        case .createPasswordView:
+            CreatePasswordView()
+                .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden() 
+        case .completeSignUpView:
+            CompleteSignUpView()
+                .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden()
         default:
             EmptyView()
         }

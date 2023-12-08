@@ -11,7 +11,7 @@ struct FeedView: View {
     @AppStorage("colorScheme") var colorScheme = "dark"
     
     var body: some View {
-        NavigationStack {
+        NavigationView{
             ScrollView(showsIndicators: false){
                 LazyVStack(spacing: 32){
                     ForEach(0...10, id: \.self){ post in
@@ -26,7 +26,7 @@ struct FeedView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image(getColorScheme() == .dark ? .igLogoWhite : .igLogoBlack)
                         .resizable()
-                        .frame(width: 110, height: 110)
+                        .frame(width: 110, height: 30)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {

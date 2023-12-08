@@ -26,18 +26,10 @@ struct LoginView: View {
             VStack{
                 TextField("Enter your email", text: $email)
                     .autocapitalization(.none)
-                    .font(.regular(size: 14))
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
+                    .modifier(IGTextFieldModifier())
                 
                 SecureField("Enter your password", text: $password)
-                    .font(.regular(size: 14))
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
+                    .modifier(IGTextFieldModifier())
             }
             
             Button{
@@ -97,7 +89,7 @@ struct LoginView: View {
             .foregroundStyle(.blue)
             .padding(.vertical,16)
             .onTapGesture {
-                coordinator.push(.signUp)
+                coordinator.push(.addEmailView)
             }
         }
     }
