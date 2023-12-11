@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct FeedCell: View {
+    let post: Post
+    
     var body: some View {
         VStack{
             //image + username
             HStack{
-                Image("batman")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                Text("Batman")
-                    .font(.semibold(size: 13))
+                if let user = post.user{
+                    Image(user.profileImageUrl ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    Text("\(user.username)")
+                        .font(.semibold(size: 13))
+                }
                 
                 Spacer()
             }
             .padding(.leading, 8)
             
             //post image
-            Image("the-flash")
+            Image(post.imageUrl)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
@@ -61,7 +65,7 @@ struct FeedCell: View {
             .foregroundStyle(.text)
             
             //like label
-            Text("2003 likes")
+            Text("\(post.likes) likes")
                 .font(.semibold(size: 13))
                 .hAlign(.leading)
                 .padding(.leading,10)
@@ -69,8 +73,8 @@ struct FeedCell: View {
             
             //caption label
             HStack{
-                Text("BATMAN ").font(.semibold(size: 13)) +
-                Text("This is some test caption for now this is some the test caption ")
+                Text("\(post.user?.username ?? "") ").font(.semibold(size: 13)) +
+                Text("\(post.caption)")
             }
             .hAlign(.leading)
             .font(.regular(size: 13))
@@ -88,5 +92,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell()
+    FeedCell(post: Post.MOCK_POSTS[0])
 }
