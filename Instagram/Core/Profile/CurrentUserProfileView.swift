@@ -2,7 +2,7 @@
 //  CurrentUserProfileView.swift
 //  Instagram
 //
-//  Created by darktech4 on 08/12/2023.
+//  Created by iamblue on 08/12/2023.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  FeedView.swift
 //  Instagram
 //
-//  Created by darktech4 on 07/12/2023.
+//  Created by iamblue on 07/12/2023.
 //
 
 import SwiftUI

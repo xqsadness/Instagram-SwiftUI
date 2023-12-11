@@ -18,6 +18,8 @@
 		DD4506C12B26A6D000EA7313 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C02B26A6D000EA7313 /* Post.swift */; };
 		DD4506C32B26B6F700EA7313 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C22B26B6F700EA7313 /* PostGridView.swift */; };
 		DD4506C52B26B93100EA7313 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C42B26B93100EA7313 /* ProfileHeaderView.swift */; };
+		DD4506C72B26E81E00EA7313 /* UploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C62B26E81E00EA7313 /* UploadPostView.swift */; };
+		DD4506C92B26EE3800EA7313 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C82B26EE3800EA7313 /* UploadViewModel.swift */; };
 		DD56DE852B21724100EA8E5F /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE802B21724100EA8E5F /* Inter-Regular.ttf */; };
 		DD56DE862B21724100EA8E5F /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE812B21724100EA8E5F /* Inter-Medium.ttf */; };
 		DD56DE872B21724100EA8E5F /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD56DE822B21724100EA8E5F /* Inter-Light.ttf */; };
@@ -53,6 +55,8 @@
 		DD4506C02B26A6D000EA7313 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DD4506C22B26B6F700EA7313 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		DD4506C42B26B93100EA7313 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		DD4506C62B26E81E00EA7313 /* UploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostView.swift; sourceTree = "<group>"; };
+		DD4506C82B26EE3800EA7313 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		DD56DE802B21724100EA8E5F /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		DD56DE812B21724100EA8E5F /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		DD56DE822B21724100EA8E5F /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		DD56DE9A2B21732200EA8E5F /* UploadPost */ = {
 			isa = PBXGroup;
 			children = (
+				DD4506C62B26E81E00EA7313 /* UploadPostView.swift */,
+				DD4506C82B26EE3800EA7313 /* UploadViewModel.swift */,
 			);
 			path = UploadPost;
 			sourceTree = "<group>";
@@ -349,12 +355,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE180C82B2074FB00E019CB /* ContentView.swift in Sources */,
+				DD4506C92B26EE3800EA7313 /* UploadViewModel.swift in Sources */,
 				DD56DEA62B219FBF00EA8E5F /* FeedCell.swift in Sources */,
 				DD56DEA42B219FA600EA8E5F /* FeedView.swift in Sources */,
 				DD3AEB0A2B22FAE200AFAD25 /* CreatePasswordView.swift in Sources */,
 				DD56DEAA2B21BFC900EA8E5F /* Appcontroller.swift in Sources */,
 				DD56DE8D2B21725800EA8E5F /* Color.swift in Sources */,
 				DD56DE8F2B21725C00EA8E5F /* Font.swift in Sources */,
+				DD4506C72B26E81E00EA7313 /* UploadPostView.swift in Sources */,
 				DD3AEB0C2B22FBFB00AFAD25 /* CompleteSignUpView.swift in Sources */,
 				DD3AEB0E2B22FF0100AFAD25 /* User.swift in Sources */,
 				DD56DEAF2B21CB1C00EA8E5F /* Coordinator.swift in Sources */,

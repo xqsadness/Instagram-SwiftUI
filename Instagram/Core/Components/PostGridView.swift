@@ -2,7 +2,7 @@
 //  PostGridView.swift
 //  Instagram
 //
-//  Created by darktech4 on 11/12/2023.
+//  Created by iamblue on 11/12/2023.
 //
 
 import SwiftUI
