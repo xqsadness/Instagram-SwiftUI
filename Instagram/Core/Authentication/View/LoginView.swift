@@ -11,11 +11,12 @@ struct LoginView: View {
     @AppStorage("colorScheme") var colorScheme = "dark"
     @EnvironmentObject var coordinator: Coordinator
     
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         VStack{
+            Spacer()
+            
             //logo image
             Image(getColorScheme() == .dark ? .igLogoWhite : .igLogoBlack)
                 .resizable()
@@ -24,11 +25,11 @@ struct LoginView: View {
 
             // text fields
             VStack{
-                TextField("Enter your email", text: $email)
+                TextField("Enter your email", text: $viewModel.email)
                     .autocapitalization(.none)
                     .modifier(IGTextFieldModifier())
                 
-                SecureField("Enter your password", text: $password)
+                SecureField("Enter your password", text: $viewModel.password)
                     .modifier(IGTextFieldModifier())
             }
             
@@ -43,7 +44,7 @@ struct LoginView: View {
             .hAlign(.trailing)
             
             Button{
-                print("login")
+                Task{ try await viewModel.signIn() }
             }label: {
                 Text("Login")
                     .font(.semibold(size: 13))

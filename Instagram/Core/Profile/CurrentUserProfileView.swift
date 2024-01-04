@@ -111,48 +111,39 @@ extension CurrentUserProfileView{
                 .frame(width: 65, height: 6)
                 .foregroundStyle(.gray).opacity(0.3)
             
-            HStack{
-                Image(systemName: "gearshape")
-                    .imageScale(.large)
-                    .foregroundStyle(.text)
-                
-                Text("Change Mode")
-                    .font(.regular(size: 16))
-                    .foregroundStyle(.text)
-            }
-            .hAlign(.leading)
-            .onTapGesture {
-                withAnimation {
-                    isShowSetting = false
-                    showChangeMode.toggle()
+            optionSetting(systemName: "gearshape", text: "Change Mode")
+                .onTapGesture {
+                    withAnimation {
+                        isShowSetting = false
+                        showChangeMode.toggle()
+                    }
                 }
-            }
             
-            HStack{
-                Image(systemName: "doc.badge.gearshape")
-                    .imageScale(.large)
-                    .foregroundStyle(.text)
-                
-                Text("Setting & privacy")
-                    .font(.regular(size: 16))
-                    .foregroundStyle(.text)
-            }
-            .hAlign(.leading)
+            optionSetting(systemName: "doc.badge.gearshape", text: "Setting & privacy")
             
-            HStack{
-                Image(systemName: "heart")
-                    .imageScale(.large)
-                    .foregroundStyle(.text)
-                
-                Text("Favorite")
-                    .font(.regular(size: 16))
-                    .foregroundStyle(.text)
-            }
-            .hAlign(.leading)
+            optionSetting(systemName: "heart", text: "Favorite")
+            
+            optionSetting(systemName: "door.left.hand.open", text: "Logout", tint: .red)
+                .onTapGesture {
+                    AuthService.shared.signout()
+                }
         }
         .padding()
         .hAlign(.leading)
         .vAlign(.top)
         .presentationDetents([.height(UIScreen.main.bounds.height / 2.75)])
+    }
+    
+    private func optionSetting(systemName: String, text: String, tint: Color = .text) -> some View{
+        HStack{
+            Image(systemName: systemName)
+                .imageScale(.large)
+                .foregroundStyle(tint)
+            
+            Text("\(text)")
+                .font(.regular(size: 16))
+                .foregroundStyle(tint)
+        }
+        .hAlign(.leading)
     }
 }
