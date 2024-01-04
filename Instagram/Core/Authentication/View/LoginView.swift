@@ -47,7 +47,7 @@ struct LoginView: View {
             }label: {
                 Text("Login")
                     .font(.semibold(size: 13))
-                    .foregroundStyle(.text2)
+                    .foregroundStyle(.white)
                     .frame(width: 360, height: 44)
                     .background(Color.blue)
                     .cornerRadius(8)

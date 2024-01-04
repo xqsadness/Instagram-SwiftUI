@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreatePasswordView: View {
     @EnvironmentObject var coordinator: Coordinator
-    @State private var password: String = ""
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 12){
@@ -33,7 +33,7 @@ struct CreatePasswordView: View {
                 .multilineTextAlignment(.leading)
                 .padding(.horizontal, 24)
             
-            SecureField("Password", text: $password)
+            SecureField("Password", text: $viewModel.password)
                 .autocapitalization(.none)
                 .modifier(IGTextFieldModifier())
                 .padding(.top)
@@ -43,7 +43,7 @@ struct CreatePasswordView: View {
             }label: {
                 Text("Next")
                     .font(.semibold(size: 13))
-                    .foregroundStyle(.text2)
+                    .foregroundStyle(.white)
                     .frame(width: 360, height: 44)
                     .background(Color.blue)
                     .cornerRadius(8)

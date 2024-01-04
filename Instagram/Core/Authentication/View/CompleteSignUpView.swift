@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CompleteSignUpView: View {
     @EnvironmentObject var coordinator: Coordinator
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 12){
@@ -24,7 +25,7 @@ struct CompleteSignUpView: View {
             
             Spacer()
 
-            Text("Welcome to Instagram")
+            Text("Welcome to Instagram, \(viewModel.username)")
                 .font(.bold(size: 20))
                 .padding(.top)
             
@@ -34,11 +35,14 @@ struct CompleteSignUpView: View {
                 .padding(.horizontal, 24)
             
             Button{
-              
+                Task{
+                    try await viewModel.createUser()
+                    coordinator.popToRoot()
+                }
             }label: {
                 Text("Complete sign up")
                     .font(.semibold(size: 13))
-                    .foregroundStyle(.text2)
+                    .foregroundStyle(.white)
                     .frame(width: 360, height: 44)
                     .background(Color.blue)
                     .cornerRadius(8)

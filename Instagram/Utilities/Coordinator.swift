@@ -68,18 +68,22 @@ class Coordinator: ObservableObject{
         case .addEmailView:
             AddEmailView()
                 .environmentObject(Coordinator.shared)
+                .environmentObject(EnvironmentContainer.shared.registrationViewModel)
                 .navigationBarBackButtonHidden()
         case .createUsernameView:
             CreateUsernameView()
                 .environmentObject(Coordinator.shared)
-                .navigationBarBackButtonHidden() 
+                .environmentObject(EnvironmentContainer.shared.registrationViewModel)
+                .navigationBarBackButtonHidden()
         case .createPasswordView:
             CreatePasswordView()
                 .environmentObject(Coordinator.shared)
-                .navigationBarBackButtonHidden() 
+                .environmentObject(EnvironmentContainer.shared.registrationViewModel)
+                .navigationBarBackButtonHidden()
         case .completeSignUpView:
             CompleteSignUpView()
                 .environmentObject(Coordinator.shared)
+                .environmentObject(EnvironmentContainer.shared.registrationViewModel)
                 .navigationBarBackButtonHidden()
         default:
             EmptyView()

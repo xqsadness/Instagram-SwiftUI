@@ -15,6 +15,8 @@
 		DD3AEB0E2B22FF0100AFAD25 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AEB0D2B22FF0100AFAD25 /* User.swift */; };
 		DD3AEB102B2301EF00AFAD25 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AEB0F2B2301EF00AFAD25 /* SearchView.swift */; };
 		DD3AEB122B230A7E00AFAD25 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3AEB112B230A7E00AFAD25 /* CurrentUserProfileView.swift */; };
+		DD3C990B2B469E4A00CECE2C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C990A2B469E4A00CECE2C /* RegistrationViewModel.swift */; };
+		DD3C990D2B46A35000CECE2C /* EnvironmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C990C2B46A35000CECE2C /* EnvironmentContainer.swift */; };
 		DD4506C12B26A6D000EA7313 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C02B26A6D000EA7313 /* Post.swift */; };
 		DD4506C32B26B6F700EA7313 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C22B26B6F700EA7313 /* PostGridView.swift */; };
 		DD4506C52B26B93100EA7313 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4506C42B26B93100EA7313 /* ProfileHeaderView.swift */; };
@@ -82,6 +84,8 @@
 		DD3AEB0D2B22FF0100AFAD25 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD3AEB0F2B2301EF00AFAD25 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DD3AEB112B230A7E00AFAD25 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
+		DD3C990A2B469E4A00CECE2C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		DD3C990C2B46A35000CECE2C /* EnvironmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentContainer.swift; sourceTree = "<group>"; };
 		DD4506C02B26A6D000EA7313 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DD4506C22B26B6F700EA7313 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		DD4506C42B26B93100EA7313 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD3C99092B469E2B00CECE2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD3C990A2B469E4A00CECE2C /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DD56DE7E2B21722500EA8E5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,8 +230,9 @@
 		DD56DE942B2172F200EA8E5F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				DDD1E2222B27F4840047F456 /* Service */,
 				DDD1E2212B27F4680047F456 /* View */,
+				DD3C99092B469E2B00CECE2C /* ViewModel */,
+				DDD1E2222B27F4840047F456 /* Service */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -293,6 +306,7 @@
 			children = (
 				DD56DEAE2B21CB1C00EA8E5F /* Coordinator.swift */,
 				DD56DEA92B21BFC900EA8E5F /* Appcontroller.swift */,
+				DD3C990C2B46A35000CECE2C /* EnvironmentContainer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -491,6 +505,7 @@
 				DD56DE8D2B21725800EA8E5F /* Color.swift in Sources */,
 				DD56DE8F2B21725C00EA8E5F /* Font.swift in Sources */,
 				DD4506C72B26E81E00EA7313 /* UploadPostView.swift in Sources */,
+				DD3C990D2B46A35000CECE2C /* EnvironmentContainer.swift in Sources */,
 				DD3AEB0C2B22FBFB00AFAD25 /* CompleteSignUpView.swift in Sources */,
 				DD3AEB0E2B22FF0100AFAD25 /* User.swift in Sources */,
 				DD56DEAF2B21CB1C00EA8E5F /* Coordinator.swift in Sources */,
@@ -507,6 +522,7 @@
 				DD3AEB062B22F8E600AFAD25 /* IGTextFieldModifier.swift in Sources */,
 				DD4506C32B26B6F700EA7313 /* PostGridView.swift in Sources */,
 				DD56DEAC2B21C44700EA8E5F /* LoginView.swift in Sources */,
+				DD3C990B2B469E4A00CECE2C /* RegistrationViewModel.swift in Sources */,
 				DD56DEA82B21AE9500EA8E5F /* DarkLightModeView.swift in Sources */,
 				DD56DE9C2B2173BF00EA8E5F /* MainTabView.swift in Sources */,
 				DDD1E2282B27F7460047F456 /* ContentViewModel.swift in Sources */,

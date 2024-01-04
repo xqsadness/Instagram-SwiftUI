@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateUsernameView: View {
     @EnvironmentObject var coordinator: Coordinator
-    @State private var username: String = ""
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 12){
@@ -33,7 +33,7 @@ struct CreateUsernameView: View {
                 .multilineTextAlignment(.leading)
                 .padding(.horizontal, 24)
             
-            TextField("Username", text: $username)
+            TextField("Username", text: $viewModel.username)
                 .autocapitalization(.none)
                 .modifier(IGTextFieldModifier())
             
@@ -42,7 +42,7 @@ struct CreateUsernameView: View {
             }label: {
                 Text("Next")
                     .font(.semibold(size: 13))
-                    .foregroundStyle(.text2)
+                    .foregroundStyle(.white)
                     .frame(width: 360, height: 44)
                     .background(Color.blue)
                     .cornerRadius(8)
