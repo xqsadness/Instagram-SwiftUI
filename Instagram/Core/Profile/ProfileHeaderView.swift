@@ -33,7 +33,6 @@ struct ProfileHeaderView: View {
                                 .stroke (Color.gray, lineWidth: 1)
                         )
                 }
-                Divider()
             }
         }
     }
@@ -61,11 +60,19 @@ extension ProfileHeaderView{
     
     private var pictureAndStats: some View{
         HStack{
-            Image(user.profileImageUrl ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
+            if let img = user.profileImageUrl{
+                Image(img)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipShape(Circle())
+            }else{
+                Image(.avtT)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipShape(Circle())
+            }
             
             Spacer()
             
@@ -78,7 +85,7 @@ extension ProfileHeaderView{
             }
         }
         .padding(.horizontal)
-        .padding(.bottom,4)
+        .padding(.bottom)
     }
     
 }

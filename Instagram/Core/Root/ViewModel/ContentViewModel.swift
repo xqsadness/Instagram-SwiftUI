@@ -17,6 +17,7 @@ class ContentViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     var userSession: FirebaseAuth.User?
+    var currentUser: User?
     
     init(){
         setupSubcribers()
@@ -25,6 +26,11 @@ class ContentViewModel {
     func setupSubcribers(){
         service.$userSession.sink { [weak self] userSession in
             self?.userSession = userSession
+        }
+        .store(in: &cancellables)
+        
+        service.$currentUser.sink { [weak self] currentUser in
+            self?.currentUser = currentUser
         }
         .store(in: &cancellables)
     }

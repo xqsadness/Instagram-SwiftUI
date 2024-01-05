@@ -50,7 +50,7 @@ extension ProfileView{
         .hAlign(.leading)
         .padding(.horizontal)
         .overlay{
-            Text("Profile")
+            Text("\(user.username)")
                 .foregroundStyle(.text)
                 .font(.semibold(size: 17))
         }

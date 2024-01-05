@@ -10,18 +10,28 @@ import SwiftUI
 struct SearchView: View {
     @State private var searchText = ""
     
+    var viewModel = SearchViewModel()
+    
     var body: some View {
         NavigationView {
             ScrollView{
                 LazyVStack(spacing: 12){
-                    ForEach(User.MOCK_USERS){ user in
+                    ForEach(viewModel.users){ user in
                         NavigationLink(value: user) {
-                            HStack{
-                                Image(user.profileImageUrl ?? "")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 40, height: 40)
-                                    .clipShape(Circle())
+                            HStack(spacing: 5){
+                                if let img = user.profileImageUrl{
+                                    Image(img)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 40, height: 40)
+                                        .clipShape(Circle())
+                                }else{
+                                    Image(.avtT)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 40, height: 40)
+                                        .clipShape(Circle())
+                                }
                                 
                                 VStack(alignment: .leading){
                                     Text("\(user.username)")

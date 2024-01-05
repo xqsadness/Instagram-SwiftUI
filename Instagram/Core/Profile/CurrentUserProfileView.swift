@@ -28,7 +28,7 @@ struct CurrentUserProfileView: View {
             ScrollView(showsIndicators: false){
                 // header
                 HStack{
-                    Text("iamblue_2801" + " ▽")
+                    Text("\(user.username) ▽")
                         .foregroundStyle(.text)
                         .font(.semibold(size: 15))
                     Spacer()

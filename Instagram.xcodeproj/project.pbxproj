@@ -40,6 +40,8 @@
 		DD56DEAA2B21BFC900EA8E5F /* Appcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DEA92B21BFC900EA8E5F /* Appcontroller.swift */; };
 		DD56DEAC2B21C44700EA8E5F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DEAB2B21C44700EA8E5F /* LoginView.swift */; };
 		DD56DEAF2B21CB1C00EA8E5F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56DEAE2B21CB1C00EA8E5F /* Coordinator.swift */; };
+		DD5E232E2B47A6A2001650CD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5E232D2B47A6A2001650CD /* UserService.swift */; };
+		DD5E23322B47A75B001650CD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5E23312B47A75B001650CD /* SearchViewModel.swift */; };
 		DDD1E1E92B27EF290047F456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */; };
 		DDD1E1EC2B27EFA00047F456 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DDD1E1EB2B27EFA00047F456 /* FirebaseAnalytics */; };
 		DDD1E1EE2B27EFA00047F456 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DDD1E1ED2B27EFA00047F456 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -111,6 +113,8 @@
 		DD56DEA92B21BFC900EA8E5F /* Appcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appcontroller.swift; sourceTree = "<group>"; };
 		DD56DEAB2B21C44700EA8E5F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DD56DEAE2B21CB1C00EA8E5F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DD5E232D2B47A6A2001650CD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DD5E23312B47A75B001650CD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDD1E2232B27F4A40047F456 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DDD1E2272B27F7460047F456 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		DD56DE902B2172B300EA8E5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD5E232D2B47A6A2001650CD /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -272,7 +277,8 @@
 		DD56DE982B21731100EA8E5F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				DD3AEB0F2B2301EF00AFAD25 /* SearchView.swift */,
+				DD5E232F2B47A736001650CD /* View */,
+				DD5E23302B47A742001650CD /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -312,6 +318,22 @@
 				DD3C990C2B46A35000CECE2C /* EnvironmentContainer.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DD5E232F2B47A736001650CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD3AEB0F2B2301EF00AFAD25 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD5E23302B47A742001650CD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD5E23312B47A75B001650CD /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DDD1E2212B27F4680047F456 /* View */ = {
@@ -513,9 +535,11 @@
 				DD3AEB0E2B22FF0100AFAD25 /* User.swift in Sources */,
 				DD56DEAF2B21CB1C00EA8E5F /* Coordinator.swift in Sources */,
 				DD3AEB102B2301EF00AFAD25 /* SearchView.swift in Sources */,
+				DD5E23322B47A75B001650CD /* SearchViewModel.swift in Sources */,
 				DD3AEB122B230A7E00AFAD25 /* CurrentUserProfileView.swift in Sources */,
 				DD4506C52B26B93100EA7313 /* ProfileHeaderView.swift in Sources */,
 				DD4506C12B26A6D000EA7313 /* Post.swift in Sources */,
+				DD5E232E2B47A6A2001650CD /* UserService.swift in Sources */,
 				DD56DEA22B21793F00EA8E5F /* UserStatView.swift in Sources */,
 				DD3AEAFF2B22AEEB00AFAD25 /* AddEmailView.swift in Sources */,
 				DDE180C62B2074FB00E019CB /* InstagramApp.swift in Sources */,
