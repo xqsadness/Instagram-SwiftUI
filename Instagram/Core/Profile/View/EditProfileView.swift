@@ -20,59 +20,12 @@ struct EditProfileView: View {
     var body: some View {
         VStack{
             //Tool bar
-            HStack{
-                Button{
-                    dismiss()
-                }label: {
-                    Text("Cancel")
-                        .font(.bold(size: 15))
-                        .foregroundStyle(.blue)
-                }
-                
-                Spacer()
-                
-                Text("Edit profile")
-                    .font(.semibold(size: 15))
-                    .foregroundStyle(.text)
-                
-                Spacer()
-                
-                Button{
-                    Task {
-                        try await viewModel.updateUserData()
-                        dismiss()
-                    }
-                }label: {
-                    Text("Done")
-                        .font(.bold(size: 15))
-                        .foregroundStyle(.blue)
-                }
-            }
-            .padding(.horizontal)
+            toolBar
             
             Divider()
             
             //Edit profile pic
-            PhotosPicker(selection: $viewModel.selectedImage){
-                VStack{
-                    if let image = viewModel.profileImage{
-                        image
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
-                    }else{
-                        Image(.avtT)
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
-                    }
-                    
-                    Text("Edit profile picture")
-                        .font(.semibold(size: 15))
-                        .foregroundStyle(.blue)
-                }
-            }
-            .padding(.vertical, 8)
+            editPicture
             
             //Edit profile info
             VStack{
@@ -113,4 +66,59 @@ struct EditProfileRowView: View {
 
 #Preview {
     EditProfileView(user: User.MOCK_USERS[0])
+}
+
+extension EditProfileView{
+    
+    private var toolBar: some View{
+        HStack{
+            Button{
+                dismiss()
+            }label: {
+                Text("Cancel")
+                    .font(.bold(size: 15))
+                    .foregroundStyle(.blue)
+            }
+            
+            Spacer()
+            
+            Text("Edit profile")
+                .font(.semibold(size: 15))
+                .foregroundStyle(.text)
+            
+            Spacer()
+            
+            Button{
+                Task {
+                    try await viewModel.updateUserData()
+                    dismiss()
+                }
+            }label: {
+                Text("Done")
+                    .font(.bold(size: 15))
+                    .foregroundStyle(.blue)
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    private var editPicture: some View{
+        PhotosPicker(selection: $viewModel.selectedImage){
+            VStack{
+                if let image = viewModel.profileImage{
+                    image
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                }else{
+                    CircularProfileImageView(user: viewModel.user, size: .large)
+                }
+                
+                Text("Edit profile picture")
+                    .font(.semibold(size: 15))
+                    .foregroundStyle(.blue)
+            }
+        }
+        .padding(.vertical, 8)
+    }
 }

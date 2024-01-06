@@ -18,29 +18,17 @@ struct SearchView: View {
                 LazyVStack(spacing: 12){
                     ForEach(viewModel.users){ user in
                         NavigationLink(value: user) {
-                            HStack(spacing: 5){
-                                if let img = user.profileImageUrl{
-                                    Image(img)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 40, height: 40)
-                                        .clipShape(Circle())
-                                }else{
-                                    Image(.avtT)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 40, height: 40)
-                                        .clipShape(Circle())
-                                }
+                            HStack(spacing: 13){
+                                CircularProfileImageView(user: user, size: .xSmall)
                                 
-                                VStack(alignment: .leading){
+                                VStack(alignment: .leading, spacing: 5){
                                     Text("\(user.username)")
                                         .font(.semibold(size: 14))
                                         .foregroundStyle(.text)
                                     
                                     if let fullname = user.fullname{
                                         Text("\(fullname)")
-                                            .font(.regular(size: 14))
+                                            .font(.regular(size: 12))
                                             .foregroundStyle(.text)
                                     }
                                 }

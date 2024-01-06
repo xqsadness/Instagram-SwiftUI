@@ -53,6 +53,7 @@ struct ProfileHeaderView: View {
 }
 
 extension ProfileHeaderView{
+    
     private var nameAndBio: some View{
         VStack(alignment: .leading, spacing: 4){
             if let fullname = user.fullname{
@@ -70,19 +71,7 @@ extension ProfileHeaderView{
     
     private var pictureAndStats: some View{
         HStack{
-            if let img = user.profileImageUrl{
-                Image(img)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-            }else{
-                Image(.avtT)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-            }
+            CircularProfileImageView(user: user, size: .large)
             
             Spacer()
             
