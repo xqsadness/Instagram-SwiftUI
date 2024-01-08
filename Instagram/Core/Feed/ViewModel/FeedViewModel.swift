@@ -8,16 +8,18 @@
 import Foundation
 import Firebase
 
-@Observable
-class FeedViewModel{
+
+class FeedViewModel: ObservableObject{
     
-    var isLoading:Bool = true
-    var posts = [Post]()
+    @Published var isLoading:Bool = true
+    @Published var posts = [Post]()
+    @Published var scrolledID: Post?
     
     init(){
         Task { try await fetchPosts() }
     }
     
+    @MainActor
     func fetchPosts() async throws{
         self.posts = try await PostService.fetchFeedPosts()
         self.isLoading = false

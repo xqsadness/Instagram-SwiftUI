@@ -16,6 +16,8 @@ struct UploadPostView: View {
     @Bindable var viewModel = UploadPostViewModel()
     @Binding var tabIndex: Int
     
+    var uploadSuccess: (() -> Void)
+    
     var body: some View {
         VStack{
             //action tool bar
@@ -40,6 +42,7 @@ struct UploadPostView: View {
                     Task{
                         try await viewModel.uploadPost(caption: caption)
                         clearPostDataAndReturnToFeed()
+                        uploadSuccess()
                     }
                 }label: {
                     Text("Upload")
@@ -83,5 +86,5 @@ struct UploadPostView: View {
 }
 
 #Preview {
-    UploadPostView(tabIndex: .constant(0))
+    UploadPostView(tabIndex: .constant(0)){}
 }

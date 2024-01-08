@@ -10,10 +10,12 @@ import SwiftUI
 struct FeedView: View {
     @AppStorage("colorScheme") var colorScheme = "dark"
     
-    var viewModel = FeedViewModel()
+    @StateObject var viewModel: FeedViewModel
     
     var body: some View {
-        NavigationView{
+        VStack{
+            toolbar
+            
             ScrollView(showsIndicators: false){
                 if viewModel.isLoading{
                     loadDataShimmering
@@ -30,23 +32,11 @@ struct FeedView: View {
                             }
                         }
                         .padding(.top, 8)
+                        .scrollTargetLayout()
                     }
                 }
             }
-            .navigationTitle("Feed")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(getColorScheme() == .dark ? .igLogoWhite : .igLogoBlack)
-                        .resizable()
-                        .frame(width: 110, height: 30)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "paperplane")
-                        .imageScale(.large)
-                }
-            }
+            .scrollPosition(id: .constant(viewModel.scrolledID?.id), anchor: .top)
             .refreshable {
                 Task{ try await viewModel.fetchPosts() }
             }
@@ -64,11 +54,39 @@ struct FeedView: View {
     }
 }
 
-#Preview {
-    FeedView()
-}
-
 extension FeedView{
+    
+    private var toolbar: some View{
+        HStack{
+            Image(getColorScheme() == .dark ? .igLogoWhite : .igLogoBlack)
+                .resizable()
+                .frame(width: 110, height: 30)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    withAnimation {
+                        viewModel.scrolledID = viewModel.posts.first
+                    }
+                }
+            
+            Spacer()
+            
+            Image(systemName: "heart")
+                .foregroundStyle(.text)
+                .imageScale(.large)
+                .padding(.trailing,5)
+                .onTapGesture {
+                    Alerter.shared.alert = Alert(title: Text("This feature is being updated in the future"), dismissButton: .default(Text("OK")))
+                }
+            
+            Image(systemName: "message")
+                .foregroundStyle(.text)
+                .imageScale(.large)
+                .onTapGesture {
+                    Alerter.shared.alert = Alert(title: Text("This feature is being updated in the future"), dismissButton: .default(Text("OK")))
+                }
+        }
+        .padding(.horizontal)
+    }
     
     private var loadDataShimmering: some View{
         VStack{

@@ -29,6 +29,14 @@ struct FeedCell: View {
             //post image
             KFImage(URL(string: post.imageUrl))
                 .resizable()
+                .fade(duration: 1)
+                .loadDiskFileSynchronously()
+                .cacheMemoryOnly()
+                .placeholder{
+                    Image(.avtT)
+                        .resizable()
+                        .scaledToFill()
+                }
                 .scaledToFill()
                 .frame(height: 400)
                 .clipShape(Rectangle())
