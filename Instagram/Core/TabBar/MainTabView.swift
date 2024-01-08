@@ -20,32 +20,17 @@ struct MainTabView: View {
             switch selectedIndex{
             case 0:
                 FeedView(viewModel: viewModel)
-                    .onAppear{
-                        selectedIndex = 0
-                    }
             case 1:
                 SearchView()
-                    .onAppear{
-                        selectedIndex = 1
-                    }
             case 2:
-                UploadPostView(tabIndex: $selectedIndex){ 
+                UploadPostView(tabIndex: $selectedIndex){
                     Task { try await viewModel.fetchPosts() }
-                }
-                .onAppear{
-                    selectedIndex = 2
                 }
             case 3:
                 Text("Reels")
                     .vAlign(.center)
-                    .onAppear{
-                        selectedIndex = 3
-                    }
             case 4:
                 CurrentUserProfileView(user: user)
-                    .onAppear{
-                        selectedIndex = 4
-                    }
             default:
                 EmptyView()
             }

@@ -30,10 +30,8 @@ struct FeedCell: View {
             KFImage(URL(string: post.imageUrl))
                 .resizable()
                 .fade(duration: 1)
-                .loadDiskFileSynchronously()
-                .cacheMemoryOnly()
                 .placeholder{
-                    Image(.avtT)
+                    Image(.df)
                         .resizable()
                         .scaledToFill()
                 }
@@ -87,7 +85,7 @@ struct FeedCell: View {
             .padding(.leading,10)
             .padding(.top, 1)
             
-            Text("2h ago")
+            Text("\(post.timestampString)")
                 .font(.regular(size: 13))
                 .hAlign(.leading)
                 .padding(.leading,10)

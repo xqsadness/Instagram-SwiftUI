@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
     
-    var viewModel = SearchViewModel()
+    @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationView {
@@ -40,7 +39,7 @@ struct SearchView: View {
                     }
                 }
                 .padding(.top, 8)
-                .searchable(text: $searchText, prompt: "Search...")
+                .searchable(text: $viewModel.searchText, prompt: "Search...")
             }
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)

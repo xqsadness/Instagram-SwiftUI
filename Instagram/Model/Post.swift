@@ -16,6 +16,10 @@ struct Post: Identifiable, Hashable, Codable {
     var imageUrl: String
     var timestamp: Timestamp
     var user: User?
+    
+    var timestampString: String{
+        return timestamp.dateValue().timestampString()
+    }
 }
 
 extension Post{

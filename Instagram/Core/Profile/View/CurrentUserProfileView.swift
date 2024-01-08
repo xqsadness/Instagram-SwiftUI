@@ -19,10 +19,6 @@ struct CurrentUserProfileView: View {
         .init(.flexible(), spacing: 1)
     ]
     
-    var posts: [Post] {
-       return Post.MOCK_POSTS.filter({ $0.user?.username == user.username })
-    }
-    
     var body: some View {
         ZStack{
             ScrollView(showsIndicators: false){

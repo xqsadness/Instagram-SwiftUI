@@ -53,6 +53,7 @@
 		DDB6707B2B4B94B30010C5AD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707A2B4B94B30010C5AD /* LoadingView.swift */; };
 		DDB6707D2B4B959D0010C5AD /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707C2B4B959D0010C5AD /* Shimmer.swift */; };
 		DDB6707F2B4B9DA70010C5AD /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707E2B4B9DA70010C5AD /* Alerter.swift */; };
+		DDB670812B4BD90D0010C5AD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB670802B4BD90D0010C5AD /* Date.swift */; };
 		DDC49E7D2B48ED5E0049D79B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49E7C2B48ED5E0049D79B /* FeedViewModel.swift */; };
 		DDD1E1E92B27EF290047F456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */; };
 		DDD1E1EC2B27EFA00047F456 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DDD1E1EB2B27EFA00047F456 /* FirebaseAnalytics */; };
@@ -137,6 +138,7 @@
 		DDB6707A2B4B94B30010C5AD /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DDB6707C2B4B959D0010C5AD /* Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		DDB6707E2B4B9DA70010C5AD /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
+		DDB670802B4BD90D0010C5AD /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		DDC49E7C2B48ED5E0049D79B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDD1E2232B27F4A40047F456 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		DD56DE7E2B21722500EA8E5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DDB670802B4BD90D0010C5AD /* Date.swift */,
 				DD56DE7F2B21722B00EA8E5F /* Font */,
 				DD56DE8E2B21725C00EA8E5F /* Font.swift */,
 				DD56DE8C2B21725800EA8E5F /* Color.swift */,
@@ -327,8 +330,6 @@
 		DD56DEA02B21792600EA8E5F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DDB6707C2B4B959D0010C5AD /* Shimmer.swift */,
-				DDB6707A2B4B94B30010C5AD /* LoadingView.swift */,
 				DDB670742B4B8C7A0010C5AD /* View */,
 				DDB670732B4B8C6B0010C5AD /* ViewModel */,
 			);
@@ -393,6 +394,8 @@
 		DDB670742B4B8C7A0010C5AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6707C2B4B959D0010C5AD /* Shimmer.swift */,
+				DDB6707A2B4B94B30010C5AD /* LoadingView.swift */,
 				DD56DEA12B21793F00EA8E5F /* UserStatView.swift */,
 				DD3AEB052B22F8E600AFAD25 /* IGTextFieldModifier.swift */,
 				DD4506C22B26B6F700EA7313 /* PostGridView.swift */,
@@ -653,6 +656,7 @@
 				DD3AEB122B230A7E00AFAD25 /* CurrentUserProfileView.swift in Sources */,
 				DDB6707D2B4B959D0010C5AD /* Shimmer.swift in Sources */,
 				DD4506C52B26B93100EA7313 /* ProfileHeaderView.swift in Sources */,
+				DDB670812B4BD90D0010C5AD /* Date.swift in Sources */,
 				DD4506C12B26A6D000EA7313 /* Post.swift in Sources */,
 				DD5E232E2B47A6A2001650CD /* UserService.swift in Sources */,
 				DD56DEA22B21793F00EA8E5F /* UserStatView.swift in Sources */,
