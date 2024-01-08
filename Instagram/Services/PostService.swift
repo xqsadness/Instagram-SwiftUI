@@ -9,10 +9,10 @@ import Foundation
 import Firebase
 
 struct PostService{
-    private static let postsCollection = Firestore.firestore().collection("posts").order(by: "timestamp", descending: true)
-    
+    private static let postsCollection = Firestore.firestore().collection("posts")
     static func fetchFeedPosts() async throws -> [Post]{
-        let snapshot = try await postsCollection.getDocuments()
+        let snapshot = try await postsCollection.order(by: "timestamp", descending: true)
+            .getDocuments()
         
         var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
         

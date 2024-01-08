@@ -20,6 +20,7 @@ class EditProfileViewModel: ObservableObject{
     @Published var profileImage: Image?
     @Published var fullname = ""
     @Published var bio = ""
+    @Published var isLoading = false
     
     private var uiImage: UIImage?
     
@@ -49,7 +50,7 @@ class EditProfileViewModel: ObservableObject{
     
     func updateUserData() async throws{
         // update profile img if changed
-        
+        isLoading = true
         var data = [String: Any]()
         
         if let uiImage = uiImage{
@@ -71,5 +72,7 @@ class EditProfileViewModel: ObservableObject{
             try await Firestore.firestore().collection("users").document(user.id)
                 .updateData(data)
         }
+        
+        isLoading = false
     }
 }

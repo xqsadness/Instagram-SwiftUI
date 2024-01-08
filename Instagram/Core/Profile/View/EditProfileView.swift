@@ -36,6 +36,9 @@ struct EditProfileView: View {
             
             Spacer()
         }
+        .overlay {
+            LoadingView(show: $viewModel.isLoading)
+        }
     }
 }
 
@@ -91,6 +94,7 @@ extension EditProfileView{
             Button{
                 Task {
                     try await viewModel.updateUserData()
+                    try await AuthService.shared.loadUserData()
                     dismiss()
                 }
             }label: {

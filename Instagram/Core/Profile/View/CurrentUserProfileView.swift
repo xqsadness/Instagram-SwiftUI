@@ -12,6 +12,7 @@ struct CurrentUserProfileView: View {
     
     @State var isShowSetting = false
     @State var showChangeMode = true
+    @State var showingLogout = false
     
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 1),
@@ -20,9 +21,8 @@ struct CurrentUserProfileView: View {
     ]
     
     var body: some View {
-        ZStack{
-            ScrollView(showsIndicators: false){
-                // header
+        ZStack(alignment: .top){
+            VStack{
                 HStack{
                     Text("\(user.username) ▽")
                         .foregroundStyle(.text)
@@ -42,10 +42,14 @@ struct CurrentUserProfileView: View {
                 .padding(.bottom)
                 .padding(.horizontal)
                 
-                ProfileHeaderView(user: user)
-                
-                // post grid view
-                PostGridView(user: user)
+                ScrollView(showsIndicators: false){
+                    // header
+                    
+                    ProfileHeaderView(user: user)
+                    
+                    // post grid view
+                    PostGridView(user: user)
+                }
             }
             .sheet(isPresented: $isShowSetting, content: {
                 sheetMore
@@ -78,7 +82,7 @@ extension CurrentUserProfileView{
         .hAlign(.leading)
         .padding(.horizontal)
     }
-
+    
     private var pictureAndStats: some View{
         HStack{
             Image(.avtT)
@@ -121,7 +125,23 @@ extension CurrentUserProfileView{
             
             optionSetting(systemName: "door.left.hand.open", text: "Logout", tint: .red)
                 .onTapGesture {
-                    AuthService.shared.signout()
+                    showingLogout.toggle()
+                }
+                .alert(isPresented: $showingLogout) {
+                    Alert(
+                        title: Text("Confirm logout"),
+                        message: Text("Are you sure want to sign out?"),
+                        primaryButton: .default(
+                            Text("Cancel"),
+                            action: {}
+                        ),
+                        secondaryButton: .destructive(
+                            Text("Logout"),
+                            action: {
+                                AuthService.shared.signout()
+                            }
+                        )
+                    )
                 }
         }
         .padding()
