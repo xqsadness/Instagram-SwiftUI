@@ -49,7 +49,7 @@ struct CurrentUserProfileView: View {
                 ProfileHeaderView(user: user)
                 
                 // post grid view
-                PostGridView(posts: posts)
+                PostGridView(user: user)
             }
             .sheet(isPresented: $isShowSetting, content: {
                 sheetMore
