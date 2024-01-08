@@ -15,6 +15,7 @@ struct UploadPostView: View {
          
     @Bindable var viewModel = UploadPostViewModel()
     @Binding var tabIndex: Int
+    @Binding var isLoading: Bool
     
     var uploadSuccess: (() -> Void)
     
@@ -41,14 +42,16 @@ struct UploadPostView: View {
                 Button{
                     Task{
                         try await viewModel.uploadPost(caption: caption)
-                        clearPostDataAndReturnToFeed()
                         uploadSuccess()
+                        clearPostDataAndReturnToFeed()
                     }
                 }label: {
                     Text("Upload")
                         .foregroundStyle(.blue)
                         .font(.semibold(size: 16))
                 }
+                .disabled(viewModel.postImage == nil && caption.isEmpty ? true : false)
+                .opacity(viewModel.postImage == nil && caption.isEmpty ? 0.5 : 1)
             }
             .padding(.horizontal)
             
@@ -74,6 +77,9 @@ struct UploadPostView: View {
         .onAppear{
             imagePickerPresented.toggle()
         }
+        .onChange(of: viewModel.isLoading, { _, newValue in
+            self.isLoading = newValue
+        })
         .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
     }
     
@@ -86,5 +92,5 @@ struct UploadPostView: View {
 }
 
 #Preview {
-    UploadPostView(tabIndex: .constant(0)){}
+    UploadPostView(tabIndex: .constant(0), isLoading: .constant(false)){}
 }

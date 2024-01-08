@@ -11,6 +11,7 @@ import Kingfisher
 struct MainTabView: View {
     let user: User
     @State private var selectedIndex = 0
+    @State private var isLoadingUploadPost = false
     
     //So that FeedView does not reload when selected
     @StateObject var viewModel = FeedViewModel()
@@ -23,7 +24,7 @@ struct MainTabView: View {
             case 1:
                 SearchView()
             case 2:
-                UploadPostView(tabIndex: $selectedIndex){
+                UploadPostView(tabIndex: $selectedIndex, isLoading: $isLoadingUploadPost){
                     Task { try await viewModel.fetchPosts() }
                 }
             case 3:
@@ -36,6 +37,9 @@ struct MainTabView: View {
             }
             
             customTabUI
+        }
+        .overlay{
+            LoadingView(show: $isLoadingUploadPost)
         }
     }
 }

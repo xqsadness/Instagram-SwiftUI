@@ -18,6 +18,7 @@ class UploadPostViewModel{
         didSet { Task { await loadImage(fromItem: selectedImage) } }
     }
     var postImage: Image?
+    var isLoading = false
     
     private var uiImage: UIImage?
     
@@ -33,8 +34,15 @@ class UploadPostViewModel{
     }
     
     func uploadPost(caption: String) async throws{
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let uiImage = uiImage else {  return }
+        isLoading = true
+        guard let uid = Auth.auth().currentUser?.uid else {
+            isLoading = false
+            return
+        }
+        guard let uiImage = uiImage else {
+            isLoading = false
+            return
+        }
         
         let postRef = Firestore.firestore().collection("posts").document()
         guard let imageUrl = try await ImageUploader.uploadImage(image: uiImage) else { return }
@@ -42,5 +50,6 @@ class UploadPostViewModel{
         guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
         
         try await postRef.setData(encodedPost)
+        isLoading = false
     }
 }
