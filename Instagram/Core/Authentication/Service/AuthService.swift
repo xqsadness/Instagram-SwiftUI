@@ -25,18 +25,37 @@ class AuthService{
         do{
             let rs = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = rs.user
+            
+            Toast.shared.present(
+                title: "Login success",
+                symbol: "checkmark",
+                isUserInteractionEnabled: true,
+                timing: .long,
+                position: .bottom
+            )
+            
             try await loadUserData()
         }catch{
             print("Debug: failed to login with error \(error.localizedDescription)")
+            Toast.shared.present(
+                title: "\(error.localizedDescription)",
+                symbol: "",
+                isUserInteractionEnabled: true,
+                timing: .long,
+                position: .bottom
+            )
         }
     }
     
-    func createUser(email: String, password: String, username: String) async throws {
+    func createUser(email: String, password: String, username: String, onSuccess: @escaping (Bool, Error?) -> Void) async throws {
         do{
             let rs = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = rs.user
             await self.uploadUserData(uid: rs.user.uid, username: username, email: email)
+            
+            onSuccess(true, nil)
         }catch{
+            onSuccess(false, error)
             print("Debug: failed to register user with error \(error.localizedDescription)")
         }
     }

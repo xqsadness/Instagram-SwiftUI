@@ -36,8 +36,11 @@ struct CompleteSignUpView: View {
             
             Button{
                 Task{
-                    try await viewModel.createUser()
-                    coordinator.popToRoot()
+                    try await viewModel.createUser{ succsess in
+                        if succsess{
+                            coordinator.popToRoot()
+                        }
+                    }
                 }
             }label: {
                 Text("Complete sign up")

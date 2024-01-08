@@ -49,6 +49,10 @@
 		DD5E233F2B47FC2F001650CD /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5E233E2B47FC2F001650CD /* CircularProfileImageView.swift */; };
 		DDB670722B4B88460010C5AD /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB670712B4B88460010C5AD /* PostService.swift */; };
 		DDB670762B4B8CA30010C5AD /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB670752B4B8CA30010C5AD /* PostGridViewModel.swift */; };
+		DDB670792B4B90D10010C5AD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB670782B4B90D10010C5AD /* Toast.swift */; };
+		DDB6707B2B4B94B30010C5AD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707A2B4B94B30010C5AD /* LoadingView.swift */; };
+		DDB6707D2B4B959D0010C5AD /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707C2B4B959D0010C5AD /* Shimmer.swift */; };
+		DDB6707F2B4B9DA70010C5AD /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6707E2B4B9DA70010C5AD /* Alerter.swift */; };
 		DDC49E7D2B48ED5E0049D79B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49E7C2B48ED5E0049D79B /* FeedViewModel.swift */; };
 		DDD1E1E92B27EF290047F456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */; };
 		DDD1E1EC2B27EFA00047F456 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DDD1E1EB2B27EFA00047F456 /* FirebaseAnalytics */; };
@@ -129,6 +133,10 @@
 		DD5E233E2B47FC2F001650CD /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		DDB670712B4B88460010C5AD /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		DDB670752B4B8CA30010C5AD /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
+		DDB670782B4B90D10010C5AD /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		DDB6707A2B4B94B30010C5AD /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DDB6707C2B4B959D0010C5AD /* Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		DDB6707E2B4B9DA70010C5AD /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		DDC49E7C2B48ED5E0049D79B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDD1E2232B27F4A40047F456 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -319,6 +327,8 @@
 		DD56DEA02B21792600EA8E5F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6707C2B4B959D0010C5AD /* Shimmer.swift */,
+				DDB6707A2B4B94B30010C5AD /* LoadingView.swift */,
 				DDB670742B4B8C7A0010C5AD /* View */,
 				DDB670732B4B8C6B0010C5AD /* ViewModel */,
 			);
@@ -328,6 +338,7 @@
 		DD56DEAD2B21CB0000EA8E5F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6707E2B4B9DA70010C5AD /* Alerter.swift */,
 				DD56DEAE2B21CB1C00EA8E5F /* Coordinator.swift */,
 				DD56DEA92B21BFC900EA8E5F /* Appcontroller.swift */,
 				DD3C990C2B46A35000CECE2C /* EnvironmentContainer.swift */,
@@ -388,6 +399,14 @@
 				DD5E233E2B47FC2F001650CD /* CircularProfileImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DDB670772B4B90B90010C5AD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDB670782B4B90D10010C5AD /* Toast.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DDC49E782B48E3C00049D79B /* View */ = {
@@ -485,6 +504,7 @@
 				DD56DE932B2172C900EA8E5F /* Model */,
 				DD56DE902B2172B300EA8E5F /* Services */,
 				DD56DEAD2B21CB0000EA8E5F /* Utilities */,
+				DDB670772B4B90B90010C5AD /* Helpers */,
 				DDD1E1E82B27EF290047F456 /* GoogleService-Info.plist */,
 				DDE180C92B2074FD00E019CB /* Assets.xcassets */,
 				DDE180CB2B2074FD00E019CB /* Preview Content */,
@@ -623,16 +643,20 @@
 				DD3C990D2B46A35000CECE2C /* EnvironmentContainer.swift in Sources */,
 				DDB670762B4B8CA30010C5AD /* PostGridViewModel.swift in Sources */,
 				DD3AEB0C2B22FBFB00AFAD25 /* CompleteSignUpView.swift in Sources */,
+				DDB670792B4B90D10010C5AD /* Toast.swift in Sources */,
 				DD3AEB0E2B22FF0100AFAD25 /* User.swift in Sources */,
 				DD56DEAF2B21CB1C00EA8E5F /* Coordinator.swift in Sources */,
 				DD3AEB102B2301EF00AFAD25 /* SearchView.swift in Sources */,
 				DD5E233F2B47FC2F001650CD /* CircularProfileImageView.swift in Sources */,
 				DD5E23322B47A75B001650CD /* SearchViewModel.swift in Sources */,
+				DDB6707B2B4B94B30010C5AD /* LoadingView.swift in Sources */,
 				DD3AEB122B230A7E00AFAD25 /* CurrentUserProfileView.swift in Sources */,
+				DDB6707D2B4B959D0010C5AD /* Shimmer.swift in Sources */,
 				DD4506C52B26B93100EA7313 /* ProfileHeaderView.swift in Sources */,
 				DD4506C12B26A6D000EA7313 /* Post.swift in Sources */,
 				DD5E232E2B47A6A2001650CD /* UserService.swift in Sources */,
 				DD56DEA22B21793F00EA8E5F /* UserStatView.swift in Sources */,
+				DDB6707F2B4B9DA70010C5AD /* Alerter.swift in Sources */,
 				DD3AEAFF2B22AEEB00AFAD25 /* AddEmailView.swift in Sources */,
 				DDE180C62B2074FB00E019CB /* InstagramApp.swift in Sources */,
 				DD3C99162B46B14700CECE2C /* LoginViewModel.swift in Sources */,

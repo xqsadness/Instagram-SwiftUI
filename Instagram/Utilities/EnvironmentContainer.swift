@@ -8,6 +8,7 @@
 import Foundation
 
 // Environment Container
+@MainActor
 class EnvironmentContainer {
     static let shared = EnvironmentContainer()
     

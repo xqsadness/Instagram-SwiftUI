@@ -34,7 +34,7 @@ struct LoginView: View {
             }
             
             Button{
-                print("forgot password")
+                Alerter.shared.alert = Alert(title: Text("This feature is being updated in the future"), dismissButton: .default(Text("OK")))
             }label: {
                 Text("Forgot Password ?")
                     .font(.semibold(size: 13))
@@ -77,6 +77,9 @@ struct LoginView: View {
                     .foregroundStyle(.blue)
             }
             .padding(.top, 8)
+            .onTapGesture {
+                Alerter.shared.alert = Alert(title: Text("This feature is being updated in the future"), dismissButton: .default(Text("OK")))
+            }
             
             Spacer()
             
@@ -92,6 +95,9 @@ struct LoginView: View {
             .onTapGesture {
                 coordinator.push(.addEmailView)
             }
+        }
+        .overlay{
+            LoadingView(show: $viewModel.isLoading)
         }
     }
     

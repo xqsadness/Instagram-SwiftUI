@@ -11,6 +11,7 @@ import Firebase
 @Observable
 class FeedViewModel{
     
+    var isLoading:Bool = true
     var posts = [Post]()
     
     init(){
@@ -19,6 +20,7 @@ class FeedViewModel{
     
     func fetchPosts() async throws{
         self.posts = try await PostService.fetchFeedPosts()
+        self.isLoading = false
     }
     
 }
