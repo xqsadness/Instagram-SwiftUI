@@ -16,4 +16,23 @@ Clone this repo and delete GoogleService-Info in the project for add your fireba
 
 ![Screenshot 2023-12-16 at 11 08 42](https://github.com/xqsadness/Messenger-SwiftUI/assets/81242756/f7bf20cd-13c7-49da-8ec2-4c4734e29634)
 
-updating ...
+<h2> Features </h2>
+<p> - Posts </p>
+<p> - Sign in, sign up </p>
+<p> - Edit profile </p>
+<p> - Dark mode </p>
+<p> - ... </p>
+<h2> Future  features </h2>
+<p> - Chat </p>
+<p> - Reels </p>
+<p> - Upload video </p>
+<p> - Likes </p>
+<p> - Comments </p>
+<p> - Follower, following </p>
+<p> - Forgot password </p>
+<p> - Push notification </p>
+<p> - Paging posts </p>
+<p> - ... </p>
+
+Updating ... 
+
