@@ -21,12 +21,13 @@ Clone this repo and delete GoogleService-Info in the project for add your fireba
 <p> - Sign in, sign up </p>
 <p> - Edit profile </p>
 <p> - Dark mode </p>
+<p> - Likes </p>
 <p> - ... </p>
 <h2> Future  features </h2>
 <p> - Chat </p>
 <p> - Reels </p>
+<p> - Story </p>
 <p> - Upload video </p>
-<p> - Likes </p>
 <p> - Comments </p>
 <p> - Follower, following </p>
 <p> - Forgot password </p>
