@@ -21,8 +21,8 @@ class FeedCellViewModel: ObservableObject{
         guard let currentUID = Auth.auth().currentUser?.uid else { return }
         let currentLikePostIds = try await UserService.fetchUser(withUid: currentUID).likedPostIDs
         
-        if let index = currentLikePostIds.firstIndex(where: { $0 == postId }){
-            likePostIds.remove(at: index)
+        if let _ = currentLikePostIds.firstIndex(where: { $0 == postId }){
+            likePostIds.removeAll(where: { $0 == postId })
             try await FeedService.likePosts(withUID: postId, isLike: false)
         }else{
             likePostIds.append(postId)
@@ -30,6 +30,16 @@ class FeedCellViewModel: ObservableObject{
         }
         
         try await FeedService.updateLikePostIDs(postID: postId)
+    }
+    
+    func doubleTapLikePosts(postId: String) async throws{
+        guard let currentUID = Auth.auth().currentUser?.uid else { return }
+        
+        if !self.likePostIds.contains(where: {$0 == postId}){
+            likePostIds.append(postId)
+            try await FeedService.likePosts(withUID: postId, isLike: true)
+            try await FeedService.updateLikePostIDs(postID: postId)
+        }
     }
     
     func fetchLikePostIds() async throws {

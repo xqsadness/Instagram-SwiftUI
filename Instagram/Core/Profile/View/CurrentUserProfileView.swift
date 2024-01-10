@@ -71,39 +71,6 @@ struct CurrentUserProfileView: View {
 }
 
 extension CurrentUserProfileView{
-    private var nameAndBio: some View{
-        VStack(alignment: .leading, spacing: 4){
-            Text("Expensive melon")
-                .font(.semibold(size: 13))
-            
-            Text("Expensive melon")
-                .font(.regular(size: 12))
-        }
-        .hAlign(.leading)
-        .padding(.horizontal)
-    }
-    
-    private var pictureAndStats: some View{
-        HStack{
-            Image(.avtT)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
-            
-            Spacer()
-            
-            HStack(spacing: 8){
-                UserStatView(value: 3, title: "Posts")
-                
-                UserStatView(value: 12, title: "Follower")
-                
-                UserStatView(value: 25, title: "Following")
-            }
-        }
-        .padding(.horizontal)
-        .padding(.bottom,4)
-    }
     
     private var sheetMore: some View{
         VStack(spacing: 13){

@@ -17,6 +17,8 @@ struct FeedView: View {
             toolbar
             
             ScrollView(showsIndicators: false){
+                StoryView()
+                
                 if viewModel.isLoading{
                     loadDataShimmering
                 }else{
@@ -26,7 +28,7 @@ struct FeedView: View {
                             .font(.regular(size: 15))
                             .foregroundStyle(.text).opacity(0.6)
                     }else{
-                        LazyVStack(spacing: 32){
+                        LazyVStack(spacing: 29){
                             ForEach(viewModel.posts){ post in
                                 FeedCell(post: post)
                             }
@@ -52,6 +54,10 @@ struct FeedView: View {
             return nil
         }
     }
+}
+
+#Preview {
+    FeedView( viewModel: .init())
 }
 
 extension FeedView{

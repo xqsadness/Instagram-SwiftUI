@@ -5,16 +5,16 @@ struct UserStatView: View {
     let value: Int
     let title: String
     var body: some View {
-        VStack{
+        VStack(spacing: 3){
             Text("\(value)")
-                .font(.semibold(size: 15))
+                .font(.semibold(size: 17))
                 .foregroundStyle(.text)
             
             Text("\(title)")
-                .font(.regular(size: 14))
+                .font(.semibold(size: 16))
                 .foregroundStyle(.text)
         }
-        .frame(width: 72)
+        .frame(width: 80)
     }
 }
 

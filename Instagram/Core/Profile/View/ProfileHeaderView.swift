@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     let user: User
-    @State private var showEditProfile = false
     
+    @State private var showEditProfile = false
+        
     var body: some View {
         VStack(spacing: 10){
             VStack {
@@ -21,25 +22,7 @@ struct ProfileHeaderView: View {
                 nameAndBio
                 
                 // action button
-                Button {
-                    if user.isCurrentUser{
-                        showEditProfile.toggle()
-                    }else{
-                        print("Follow user")
-                    }
-                } label: {
-                    Text(user.isCurrentUser ? "Edit Profile" : "Follow")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .frame(width: 360, height: 32)
-                        .background(user.isCurrentUser ? .white : Color(.systemBlue))
-                        .foregroundColor(user.isCurrentUser ? .text : .white)
-                        .cornerRadius(7)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(user.isCurrentUser ? .gray : .clear, lineWidth: 1)
-                        )
-                }
+               actionBtn
             }
         }
         .fullScreenCover(isPresented: $showEditProfile) {
@@ -54,6 +37,42 @@ struct ProfileHeaderView: View {
 
 extension ProfileHeaderView{
     
+    private var actionBtn: some View{
+        HStack{
+            Button {
+                if user.isCurrentUser{
+                    showEditProfile.toggle()
+                }else{
+                    print("Follow user")
+                }
+            } label: {
+                Text(user.isCurrentUser ? "Edit Profile" : "Follow")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .hAlign(.center)
+                    .frame(height: 32)
+                    .background(user.isCurrentUser ? .text2 : Color(.systemBlue))
+                    .foregroundColor(user.isCurrentUser ? .text : .white)
+                    .cornerRadius(5)
+            }
+            
+            Button {
+                Alerter.shared.alert = Alert(title: Text("This feature is being updated in the future"), dismissButton: .default(Text("OK")))
+            } label: {
+                Text(user.isCurrentUser ? "Share profile" : "Message")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .hAlign(.center)
+                    .frame(height: 32)
+                    .background(.text2)
+                    .foregroundColor(.text)
+                    .cornerRadius(5)
+            }
+        }
+        .hAlign(.center)
+        .padding(.horizontal,9)
+    }
+    
     private var nameAndBio: some View{
         VStack(alignment: .leading, spacing: 4){
             if let fullname = user.fullname{
@@ -66,7 +85,8 @@ extension ProfileHeaderView{
             }
         }
         .hAlign(.leading)
-        .padding(.horizontal)
+        .padding(.bottom,1)
+        .padding(.horizontal,9)
     }
     
     private var pictureAndStats: some View{
@@ -75,7 +95,7 @@ extension ProfileHeaderView{
             
             Spacer()
             
-            HStack(spacing: 8){
+            HStack(spacing: 17){
                 UserStatView(value: 3, title: "Posts")
                 
                 UserStatView(value: 12, title: "Follower")
@@ -83,8 +103,8 @@ extension ProfileHeaderView{
                 UserStatView(value: 25, title: "Following")
             }
         }
-        .padding(.horizontal)
-        .padding(.bottom)
+        .padding(.horizontal,9)
+        .padding(.bottom,3)
     }
     
 }
