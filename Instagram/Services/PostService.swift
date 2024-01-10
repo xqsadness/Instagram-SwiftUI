@@ -10,19 +10,19 @@ import Firebase
 
 struct PostService{
     private static let postsCollection = Firestore.firestore().collection("posts")
-    static func fetchFeedPosts() async throws -> [Post]{
-        let snapshot = try await postsCollection.order(by: "timestamp", descending: true)
-            .getDocuments()
-        
-        var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
-        
-        for i in 0 ..< posts.count{
-            let post = posts[i]
-            let ownerID = post.ownerID
-            let postUser = try await UserService.fetchUser(withUid: ownerID)
-            posts[i].user = postUser
+    
+    static func fetchFeedPosts(completion: @escaping ([Post]) -> Void) {
+        postsCollection.order(by: "timestamp", descending: true).addSnapshotListener { snapshot, _ in
+            guard let snapshot = snapshot else {
+                completion([])
+                return
+            }
+            do{
+                completion(try snapshot.documents.compactMap({ try $0.data(as: Post.self) }))
+            }catch{
+                print(error.localizedDescription)
+            }
         }
-        return posts
     }
     
     static func fetchUserPosts(uid: String) async throws -> [Post]{

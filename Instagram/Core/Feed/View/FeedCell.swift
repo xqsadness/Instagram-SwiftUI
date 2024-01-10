@@ -9,6 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct FeedCell: View {
+    
+    @StateObject var viewModel = FeedCellViewModel()
+    
     let post: Post
     
     var body: some View {
@@ -43,8 +46,10 @@ struct FeedCell: View {
             HStack(spacing: 16){
                 Button{
                     print("Like post")
+                    Task{ try await viewModel.likePosts(postId: post.id) }
                 }label: {
-                    Image(systemName: "heart")
+                    Image(systemName: viewModel.likePostIds.contains(where: { $0 == post.id }) ? "heart.fill" : "heart")
+                        .foregroundStyle(viewModel.likePostIds.contains(where: { $0 == post.id }) ? .red : .text)
                         .imageScale(.large)
                 }
                 

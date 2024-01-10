@@ -2,7 +2,7 @@
 //  FeedService.swift
 //  Instagram
 //
-//  Created by darktech4 on 09/01/2024.
+//  Created by iamblue on 09/01/2024.
 //
 
 import Foundation
@@ -17,11 +17,26 @@ struct FeedService{
         
         let userDocRef = Firestore.firestore().collection("users").document(currentUID)
         
-        var updatedData = [
+        let updatedData = [
             "likedPostIDs": (currentUser.likedPostIDs.firstIndex(where: { $0 == postID }) != nil) ? FieldValue.arrayRemove([postID]) : FieldValue.arrayUnion([postID])
         ]
-
+        
         try await userDocRef.updateData(updatedData)
+    }
+    
+    static func likePosts(withUID: String, isLike: Bool) async throws{
+        let postRef = Firestore.firestore().collection("posts").document(withUID)
+        
+        let currentLikePost = try await Firestore.firestore().collection("posts")
+            .document(withUID)
+            .getDocument()
+            .data(as: Post.self).likes
+        
+        let updatedData = [
+            "likes": currentLikePost >= 0 ? isLike ? currentLikePost + 1 : currentLikePost - 1 : 0
+        ]
+        
+        try await postRef.updateData(updatedData)
     }
     
 }

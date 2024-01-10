@@ -47,6 +47,7 @@ class AuthService{
         }
     }
     
+    @MainActor
     func createUser(email: String, password: String, username: String, onSuccess: @escaping (Bool, Error?) -> Void) async throws {
         do{
             let rs = try await Auth.auth().createUser(withEmail: email, password: password)
