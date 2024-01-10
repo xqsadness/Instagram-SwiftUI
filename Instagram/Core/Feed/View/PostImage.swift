@@ -22,29 +22,28 @@ struct PostImage: View {
     @State var likeCounter: [Like] = []
     
     var body: some View {
-        VStack{
-            KFImage(URL(string: post.imageUrl))
-                .resizable()
-                .fade(duration: 1)
-                .placeholder{
-                    Image(.df)
-                        .resizable()
-                        .scaledToFill()
-                }
-                .scaledToFill()
-                .frame(height: 400)
-                .clipShape(Rectangle())
-                .overlay(alignment: .topLeading){
-                    HeartAnimation(likeCounter: $likeCounter)
-                }
+        KFImage(URL(string: post.imageUrl))
+            .placeholder{
+                Image(.df)
+                    .resizable()
+                    .scaledToFill()
+            }
+            .resizable()
+            .fade(duration: 1)
+            .scaledToFill()
+            .frame(height: 400)
+            .clipShape(Rectangle())
+            .overlay(alignment: .topLeading){
+                HeartAnimation(likeCounter: $likeCounter)
+            }
             //double tap like animation
-                .onTapGesture(count: 2) { pos in
-                    Task {
-                        doubleTapLike(pos: pos)
-                        try await viewModel.doubleTapLikePosts(postId: post.id)
-                    }
+            .onTapGesture(count: 2) { pos in
+                Task {
+                    doubleTapLike(pos: pos)
+                    try await viewModel.doubleTapLikePosts(postId: post.id)
                 }
-        }
+            }
+            .contentShape(Rectangle()) 
     }
     
     func doubleTapLike(pos: CGPoint){

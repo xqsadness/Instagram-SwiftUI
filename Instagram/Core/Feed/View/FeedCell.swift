@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct FeedCell: View {
     
     @StateObject var viewModel = FeedCellViewModel()
+    @State var showComment = false
+    @State var tooggleComment = false
+    
     let post: Post
     
     var body: some View {
@@ -33,20 +35,32 @@ struct FeedCell: View {
             
             //action btn
             HStack(spacing: 16){
-                Button{
-                    Task{ try await viewModel.likePosts(postId: post.id) }
-                }label: {
-                    Image(systemName: viewModel.likePostIds.contains(where: { $0 == post.id }) ? "heart.fill" : "heart")
-                        .foregroundStyle(viewModel.likePostIds.contains(where: { $0 == post.id }) ? .red : .text)
-                        .imageScale(.large)
-                        .symbolEffect(.bounce, options: .default, value: viewModel.likePostIds.contains(where: { $0 == post.id }))
-                }
+                Image(systemName: viewModel.likePostIds.contains(where: { $0 == post.id }) ? "heart.fill" : "heart")
+                    .foregroundStyle(viewModel.likePostIds.contains(where: { $0 == post.id }) ? .red : .text)
+                    .imageScale(.large)
+                    .symbolEffect(.bounce, options: .default, value: viewModel.likePostIds.contains(where: { $0 == post.id }))
+                    .onTapGesture(count: 1){
+                        Task{ try await viewModel.likePosts(postId: post.id) }
+                    }
                 
                 Button{
                     print("Comment on post")
+                    tooggleComment = true
                 }label: {
                     Image(systemName: "bubble.right")
                         .imageScale(.large)
+                }
+                .onChange(of: tooggleComment) { _ , newValue in
+                    if newValue {
+                        showComment = newValue
+                    }
+                }
+                
+                .sheet(isPresented: $showComment, onDismiss: {
+                    tooggleComment = false
+                }){
+                    PostComment(post: post)
+                        .presentationDetents([.medium, .large])
                 }
                 
                 Button{

@@ -21,7 +21,7 @@ class FeedCellViewModel: ObservableObject{
         guard let currentUID = Auth.auth().currentUser?.uid else { return }
         let currentLikePostIds = try await UserService.fetchUser(withUid: currentUID).likedPostIDs
         
-        if let _ = currentLikePostIds.firstIndex(where: { $0 == postId }){
+        if self.likePostIds.contains(where: {$0 == postId}){
             likePostIds.removeAll(where: { $0 == postId })
             try await FeedService.likePosts(withUID: postId, isLike: false)
         }else{
