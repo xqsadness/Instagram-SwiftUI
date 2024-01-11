@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 
-
 class FeedViewModel: ObservableObject{
     
     @Published var isLoading:Bool = true
@@ -23,11 +22,13 @@ class FeedViewModel: ObservableObject{
     func fetchPosts() async throws{
         PostService.fetchFeedPosts { posts in
             Task{
+                //Need code optimization
                 for post in posts{
                     // Check if the post is already in the 'posts' array
                     if let index = self.posts.firstIndex(where: { $0.id == post.id }) {
-                        // If found, update the likes for the existing post
+                        // If found, update the likes, comments,...(if need) for the existing post
                         self.posts[index].likes = post.likes
+                        self.posts[index].comments = post.comments
                     }else{
                         self.posts = posts
                         

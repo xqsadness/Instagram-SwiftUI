@@ -51,7 +51,7 @@ struct MainTabView: View {
 extension MainTabView{
     
     private var customTabUI: some View{
-        HStack(spacing: 50){
+        HStack(spacing: 55){
             Image(systemName: "house.fill")
                 .imageScale(.large)
                 .foregroundStyle(selectedIndex == 0 ? .text : .gray)
@@ -106,7 +106,9 @@ extension MainTabView{
                 }else{
                     Image(.avtT)
                         .resizable()
+                        .scaledToFill()
                         .frame(width: 30, height: 30)
+                        .clipShape(Circle())
                 }
             }
             .onTapGesture {

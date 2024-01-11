@@ -16,6 +16,7 @@ struct Post: Identifiable, Hashable, Codable {
     var imageUrl: String
     var timestamp: Timestamp
     var user: User?
+    var comments: [Comment] = []
     
     var timestampString: String{
         return timestamp.dateValue().timestampString()

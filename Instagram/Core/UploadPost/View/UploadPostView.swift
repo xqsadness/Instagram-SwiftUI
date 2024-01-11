@@ -42,8 +42,8 @@ struct UploadPostView: View {
                 Button{
                     Task{
                         try await viewModel.uploadPost(caption: caption)
-                        uploadSuccess()
                         clearPostDataAndReturnToFeed()
+                        uploadSuccess()
                     }
                 }label: {
                     Text("Upload")
@@ -84,10 +84,10 @@ struct UploadPostView: View {
     }
     
     func clearPostDataAndReturnToFeed(){
+        tabIndex = 0
         caption = ""
         viewModel.selectedImage = nil
         viewModel.postImage = nil
-        tabIndex = 0
     }
 }
 
