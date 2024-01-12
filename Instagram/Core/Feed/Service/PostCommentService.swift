@@ -16,21 +16,16 @@ struct PostCommentService{
         
         // Fetch the current user
         let currentUser = try await UserService.fetchUser(withUid: currentUID)
-
+        
         // Reference to the document of the post
         let postRef = Firestore.firestore().collection("posts").document(postID)
         
-        // Retrieve the current data of the post
-        var postData = try await postRef.getDocument().data(as: Post.self)
+        // Create a new Comment object and Encoder
+        let newComment = try Firestore.Encoder().encode(Comment(content: content, likes: 0, timestamp: Timestamp(), user: currentUser))
         
-        // Create a new Comment object
-        let newComment = Comment(content: content, likes: 0, timestamp: Timestamp(), user: currentUser)
-        // Append the new Comment to the comments array of the post
-        postData.comments.append(newComment)
-        
-        // Update the data of the post on Firestore
-        try await postRef.updateData(Firestore.Encoder().encode(postData))
+        // Use FieldValue.arrayUnion to add the new comment to the array
+        try await postRef.updateData([
+            "comments": FieldValue.arrayUnion([newComment])
+        ])
     }
-
-    
 }

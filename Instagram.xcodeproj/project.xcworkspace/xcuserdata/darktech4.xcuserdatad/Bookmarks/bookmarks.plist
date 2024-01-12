@@ -56,13 +56,13 @@
 					<key>EndingColumnNumber</key>
 					<string>4</string>
 					<key>EndingLineNumber</key>
-					<string>12</string>
+					<string>11</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>4</string>
 					<key>StartingLineNumber</key>
-					<string>12</string>
+					<string>11</string>
 					<key>Timestamp</key>
-					<string>726637776.238572</string>
+					<string>726715658.844542</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -78,15 +78,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>    </string>
+				<string></string>
 				<key>leading</key>
-				<string>struct PostCommentService{
-    
-</string>
+				<string>
+struct PostCommentService{
+    </string>
 				<key>trailing</key>
-				<string>static func commentPost(postID: String, content: String) async throws {
+				<string>
+    static func commentPost(postID: String, content: String) async throws {
         // Ensure the user is authenticated
-        guard let currentUID = Auth.auth().currentUser?.uid else { return }
 </string>
 			</dict>
 			<key>type</key>
